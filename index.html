@@ -1,109 +1,63 @@
-<!doctype html> <!-- Tells the browser this file uses modern HTML -->
-
-<html lang="en"> <!-- Root element of the page, language set to English -->
-
-<head> <!-- Metadata about the page (not visible content) -->
-
-  <meta charset="UTF-8" /> <!-- Allows all characters like emojis or accents -->
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Makes the page scale correctly on phones and tablets -->
-
-  <title>MBTI Personality Survey</title>
-  <!-- The text that appears in the browser tab -->
-
-  <link rel="stylesheet" href="styles.css" />
-  <!-- Connects this HTML file to the external CSS file that controls styling -->
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MBTI Survey & Personality Reveal</title>
+<link rel="stylesheet" href="styles.css" />
 </head>
+<body>
+<div id="app" class="container">
 
-<body> <!-- Everything visible on the page goes inside body -->
+  <!-- Intro page -->
+  <section id="intro" class="page active">
+    <h1>Discover Your MBTI Type</h1>
+    <p>Take the survey or enter a known 4-letter type code.</p>
+    <div class="action-row">
+      <button id="start-btn">Start Survey</button>
+      <button id="code-btn">Enter MBTI Code</button>
+    </div>
+  </section>
 
-  <div id="app" class="container">
-  <!-- Main container that wraps the entire application -->
+  <!-- Survey page -->
+  <section id="survey" class="page">
+    <h2 id="question-text"></h2>
+    <div id="options-container" class="options-grid"></div>
+    <div class="progress">Question <span id="current-question">1</span> of 12</div>
+  </section>
 
-    <section id="intro" class="page active">
-    <!-- First screen users see (active means visible) -->
+  <!-- Code entry page -->
+  <section id="code-page" class="page">
+    <h2>Type Lookup</h2>
+    <p>Enter a 4-letter code like INFP, ESTJ, etc.</p>
+    <input id="code" maxlength="4" placeholder="e.g. INFP" />
+    <div class="action-row">
+      <button id="submit-code-btn">Show Result</button>
+      <button id="back-btn" class="secondary">Back</button>
+    </div>
+  </section>
 
-      <h1>Discover Your MBTI Type</h1>
-      <!-- Main title -->
+  <!-- MBTI Result page -->
+  <section id="result" class="page">
+    <h1 id="result-header"></h1>
+    <p id="result-text" class="result-text"></p>
+    <div class="action-row">
+      <button id="next-btn">See Your Spirit Animal</button>
+    </div>
+  </section>
 
-      <p>Take the survey or enter a known 4-letter type code.</p>
-      <!-- Instruction text -->
+  <!-- Secondary Result page (animal / archetype) -->
+  <section id="animal-result" class="page">
+    <h1 id="animal-header"></h1>
+    <p id="animal-text" class="result-text"></p>
+    <iframe id="video" width="560" height="315" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="action-row">
+      <button id="restart-btn">Take Again</button>
+    </div>
+  </section>
 
-      <div class="action-row">
-      <!-- Container to hold the buttons side-by-side -->
+</div>
 
-        <button id="start-btn">Start Survey</button>
-        <!-- Button that begins the personality survey -->
-
-        <button id="code-btn">Enter MBTI Code</button>
-        <!-- Button that lets the user skip the survey and enter a known type -->
-
-      </div>
-    </section>
-
-    <section id="survey" class="page">
-    <!-- Survey page (hidden at first because it lacks "active") -->
-
-      <h2 id="question-text"></h2>
-      <!-- JavaScript will insert the current question here -->
-
-      <div id="options-container" class="options-grid"></div>
-      <!-- JavaScript dynamically inserts answer buttons here -->
-
-      <div class="progress">
-        Question <span id="current-question">1</span> of 12
-      </div>
-      <!-- Shows the user which question they are on -->
-
-    </section>
-
-    <section id="code-page" class="page">
-    <!-- Page where users can manually enter an MBTI type -->
-
-      <h2>Type Lookup</h2>
-
-      <p>Enter a 4-letter code like INFP, ESTJ, etc.</p>
-
-      <input id="code" maxlength="4" placeholder="e.g. INFP" />
-      <!-- Input box for typing the MBTI code -->
-
-      <div class="action-row">
-
-        <button id="submit-code-btn">Show Result</button>
-        <!-- Button that processes the entered MBTI code -->
-
-        <button id="back-btn" class="secondary">Back</button>
-        <!-- Button returning to the intro page -->
-
-      </div>
-
-    </section>
-
-    <section id="result" class="page">
-    <!-- Final page that displays the MBTI result -->
-
-      <h1 id="result-header"></h1>
-      <!-- JavaScript inserts the MBTI type here -->
-
-      <p id="result-text" class="result-text"></p>
-      <!-- JavaScript inserts the personality description here -->
-
-      <div class="action-row">
-
-        <button id="restart-btn">Take Again</button>
-        <!-- Reloads the app so the user can take the test again -->
-
-      </div>
-
-    </section>
-
-  </div>
-
-  <script src="script.js"></script>
-  <!-- Loads the JavaScript file that controls the behavior of the site -->
-
+<script src="script.js"></script>
 </body>
-
 </html>
