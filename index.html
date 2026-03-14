@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MBTI Personality Survey</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app" class="container">
+      <section id="intro" class="page active">
+        <h1>Discover Your MBTI Type</h1>
+        <p>Take the survey or enter a known 4-letter type code.</p>
+        <div class="action-row">
+          <button id="start-btn">Start Survey</button>
+          <button id="code-btn">Enter MBTI Code</button>
+        </div>
+      </section>
+
+      <section id="survey" class="page">
+        <h2 id="question-text"></h2>
+        <div id="options-container" class="options-grid"></div>
+        <div class="progress">
+          Question <span id="current-question">1</span> of 12
+        </div>
+      </section>
+
+      <section id="code-page" class="page">
+        <h2>Type Lookup</h2>
+        <p>Enter a 4-letter code like INFP, ESTJ, etc.</p>
+        <input id="code" maxlength="4" placeholder="e.g. INFP" />
+        <div class="action-row">
+          <button id="submit-code-btn">Show Result</button>
+          <button id="back-btn" class="secondary">Back</button>
+        </div>
+      </section>
+
+      <section id="result" class="page">
+        <h1 id="result-header"></h1>
+        <p id="result-text" class="result-text"></p>
+        <div class="action-row">
+          <button id="restart-btn">Take Again</button>
+        </div>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
